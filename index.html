@@ -1500,7 +1500,14 @@ function toNumber(value) {
   if (value === "" || value === null || value === undefined) {
     return 0;
   }
-  const parsed = Number(String(value).replace(",", "."));
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : 0;
+  }
+  const parsedTr = parseTrNumber(value);
+  if (parsedTr !== "") {
+    return parsedTr;
+  }
+  const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : 0;
 }
 
