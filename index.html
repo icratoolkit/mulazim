@@ -1997,23 +1997,23 @@ function calcIcraDikey(data) {
     toNumber(data.ivuGecmisFaiz)
   );
 
+  const girilenIcraVekalet = truncateMoney(toNumber(data.icraVekaletUcreti));
+
   const ilamliFaiz = truncateMoney(toNumber(data.gecmisFaiz) + asilFaiz);
   const ilamliNispiTavan = truncateMoney(calculateIcraNispiVekalet(takipTutari) * kesinlesmeCarpani);
-  const ilamliVekalet = truncateMoney(Math.min(vekaletHavuzu, ilamliNispiTavan));
   const ilamliVekaletArtan = truncateMoney(Math.max(0, vekaletHavuzu - ilamliNispiTavan));
   const ilamliIlamVu = truncateMoney(toNumber(data.ilamVekalet) + ilamliVekaletArtan);
   const ilamliIcraMasrafi = truncateMoney(toNumber(data.vekaletPulu) + toNumber(data.tebligatGideri) + toNumber(data.basvurmaHarci) + toNumber(data.vekaletSuretHarci) + toNumber(data.pesinHarc) + toNumber(data.tahsilHarci));
   const ilamliMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.harc));
-  const ilamliToplam = toplam;
+  const ilamliToplam = truncateMoney(toNumber(data.asilAlacak) + ilamliFaiz + girilenIcraVekalet + ilamliIcraMasrafi + ilamliIlamVu + ilamliMahkemeYg);
 
   const ilamsizFaiz = truncateMoney(toNumber(data.gecmisFaiz) + asilFaiz);
   const ilamsizMaktuTavan = truncateMoney(ICRA_MAKTU_VEKALET * kesinlesmeCarpani);
-  const ilamsizVekalet = truncateMoney(Math.min(vekaletHavuzu, ilamsizMaktuTavan));
   const ilamsizVekaletArtan = truncateMoney(Math.max(0, vekaletHavuzu - ilamsizMaktuTavan));
   const ilamsizIcraMasrafi = truncateMoney(toNumber(data.vekaletPulu) + toNumber(data.tebligatGideri) + toNumber(data.basvurmaHarci) + toNumber(data.vekaletSuretHarci) + toNumber(data.pesinHarc) + toNumber(data.tahsilHarci));
   const ilamsizIlamVu = truncateMoney(toNumber(data.ilamVekalet) + ilamsizVekaletArtan);
   const ilamsizMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.harc));
-  const ilamsizToplam = toplam;
+  const ilamsizToplam = truncateMoney(toNumber(data.asilAlacak) + ilamsizFaiz + girilenIcraVekalet + ilamsizIcraMasrafi);
 
   return {
     asilFaiz,
@@ -2028,7 +2028,7 @@ function calcIcraDikey(data) {
     ilamli: {
       asilAlacak: toNumber(data.asilAlacak),
       faiz: ilamliFaiz,
-      vekaletUcreti: ilamliVekalet,
+      vekaletUcreti: girilenIcraVekalet,
       icraMasrafi: ilamliIcraMasrafi,
       ilamVu: ilamliIlamVu,
       mahkemeYg: ilamliMahkemeYg,
@@ -2039,7 +2039,7 @@ function calcIcraDikey(data) {
     ilamsiz: {
       asilAlacak: toNumber(data.asilAlacak),
       faiz: ilamsizFaiz,
-      vekaletUcreti: ilamsizVekalet,
+      vekaletUcreti: girilenIcraVekalet,
       icraMasrafi: ilamsizIcraMasrafi,
       ilamVu: ilamsizIlamVu,
       mahkemeYg: ilamsizMahkemeYg,
