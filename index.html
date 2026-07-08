@@ -2003,17 +2003,17 @@ function calcIcraDikey(data) {
   const ilamliFaiz = truncateMoney(toNumber(data.gecmisFaiz) + asilFaiz);
   const ilamliNispiTavan = truncateMoney(calculateIcraNispiVekalet(takipTutari) * kesinlesmeCarpani);
   const ilamliVekaletArtan = truncateMoney(Math.max(0, vekaletHavuzu - ilamliNispiTavan));
-  const ilamliIlamVu = truncateMoney(toNumber(data.ilamVekalet) + toNumber(data.ivuGecmisFaiz) + ivuFaiz);
+  const ilamliIlamVu = truncateMoney(toNumber(data.ilamVekalet) + ilamliVekaletArtan);
   const ilamliIcraMasrafi = truncateMoney(toNumber(data.vekaletPulu) + toNumber(data.tebligatGideri) + toNumber(data.basvurmaHarci) + toNumber(data.vekaletSuretHarci) + toNumber(data.pesinHarc) + toNumber(data.tahsilHarci));
-  const ilamliMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.ygGecmisFaiz) + ygFaiz + toNumber(data.harc) + toNumber(data.harcGecmisFaiz) + harcFaiz);
+  const ilamliMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.harc));
   const ilamliToplam = toplam;
 
   const ilamsizFaiz = truncateMoney(toNumber(data.gecmisFaiz) + asilFaiz);
   const ilamsizMaktuTavan = truncateMoney(ICRA_MAKTU_VEKALET * kesinlesmeCarpani);
   const ilamsizVekaletArtan = truncateMoney(Math.max(0, vekaletHavuzu - ilamsizMaktuTavan));
   const ilamsizIcraMasrafi = truncateMoney(toNumber(data.vekaletPulu) + toNumber(data.tebligatGideri) + toNumber(data.basvurmaHarci) + toNumber(data.vekaletSuretHarci) + toNumber(data.pesinHarc) + toNumber(data.tahsilHarci));
-  const ilamsizIlamVu = truncateMoney(toNumber(data.ilamVekalet) + toNumber(data.ivuGecmisFaiz) + ivuFaiz);
-  const ilamsizMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.ygGecmisFaiz) + ygFaiz + toNumber(data.harc) + toNumber(data.harcGecmisFaiz) + harcFaiz);
+  const ilamsizIlamVu = truncateMoney(toNumber(data.ilamVekalet) + ilamsizVekaletArtan);
+  const ilamsizMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.harc));
   const ilamsizToplam = toplam;
 
   return {
