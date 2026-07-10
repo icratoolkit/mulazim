@@ -916,6 +916,13 @@ input:focus {
   }
 }
 
+.calculator-tab{border:1px solid var(--line);background:var(--surface-muted);color:var(--text);border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;transition:.2s}.calculator-tab:hover,.calculator-tab.is-open{transform:translateY(-1px);border-color:var(--accent)}.calculator-tab.is-open{background:var(--accent-soft);color:var(--accent-dark)}
+.calculator-window{position:fixed;z-index:900;top:110px;right:26px;width:min(390px,calc(100vw - 24px));height:min(690px,calc(100vh - 40px));display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--card);box-shadow:0 28px 70px rgba(35,20,10,.28)}.calculator-window.is-open{display:flex}.calculator-window.is-fullscreen{inset:16px!important;width:auto;height:auto;border-radius:24px}.calculator-window.is-docked{top:86px!important;right:0!important;left:auto!important;height:calc(100vh - 102px);border-radius:24px 0 0 24px}.calculator-window.is-minimized{width:58px;height:58px;top:120px!important;right:0!important;left:auto!important;border-radius:18px 0 0 18px}.calculator-window.is-minimized .calculator-body,.calculator-window.is-minimized .calculator-tabs,.calculator-window.is-minimized .calculator-title,.calculator-window.is-minimized .calculator-tools,.calculator-window.is-minimized .calculator-window-control:not([data-calc-action="minimize"]){display:none}.calculator-window.is-minimized .calculator-head{height:58px;padding:7px;justify-content:center;cursor:pointer}.calculator-window.is-minimized [data-calc-action="minimize"]{width:18px;height:18px;transform:scale(1.15)}
+.calculator-head{height:62px;flex:0 0 62px;position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 18px;border-bottom:1px solid var(--line);background:var(--card-strong);cursor:grab;user-select:none;touch-action:none}.calculator-title{position:absolute;left:50%;transform:translateX(-50%);font-weight:800;white-space:nowrap}.calculator-tools{display:flex;align-items:center;gap:2px;margin-left:auto}.calculator-tool{width:30px;height:30px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:var(--text);font-size:15px;font-weight:700;cursor:pointer}.calculator-tool:hover{background:var(--accent-soft);color:var(--accent-dark)}.calculator-window-controls{display:flex;align-items:center;gap:8px}.calculator-window-control{width:16px;height:16px;padding:0;border:0;border-radius:50%;position:relative;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}.calculator-window-control::after{position:absolute;inset:0;display:grid;place-items:center;color:rgba(42,25,18,.72);font:700 11px/1 Arial;opacity:0;transition:opacity .15s}.calculator-window-controls:hover .calculator-window-control::after{opacity:1}.calculator-window-control.is-close{background:#ff5f57}.calculator-window-control.is-close::after{content:"×"}.calculator-window-control.is-minimize{background:#febc2e}.calculator-window-control.is-minimize::after{content:"−"}.calculator-window-control.is-fullscreen{background:#28c840}.calculator-window-control.is-fullscreen::after{content:"+"}
+.calculator-tabs{height:44px;flex:0 0 44px;display:flex;align-items:center;gap:6px;padding:6px 12px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--card-strong) 70%,var(--card));overflow-x:auto;scrollbar-width:none}.calculator-tab-item,.calculator-tab-add{height:31px;min-width:38px;padding:0 8px 0 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface-muted);color:var(--muted);font-weight:700;cursor:pointer}.calculator-tab-item{display:inline-flex;align-items:center;justify-content:center;gap:7px}.calculator-tab-item.is-active{background:var(--accent);border-color:var(--accent);color:#fff7ef}.calculator-tab-close{width:17px;height:17px;display:grid;place-items:center;border-radius:50%;font:700 13px/1 Arial;opacity:.55}.calculator-tab-close:hover{background:rgba(0,0,0,.16);opacity:1}.calculator-tab-add{min-width:31px;padding:0;font-size:20px;color:var(--accent-dark)}
+.calculator-body{min-height:0;flex:1;display:flex;flex-direction:column;padding:12px}.calculator-display{min-height:128px;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:14px 10px 18px;text-align:right;overflow:hidden}.calculator-expression{min-height:29px;color:var(--muted);font-size:20px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}.calculator-result{margin-top:6px;font-size:clamp(36px,8vw,52px);line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.calculator-result.is-preview{color:var(--muted);font-size:36px}.calculator-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.calculator-key{min-height:55px;border:1px solid var(--line);border-radius:16px;background:var(--surface-muted);color:var(--text);font-size:21px;font-weight:700;cursor:pointer}.calculator-key:hover{border-color:var(--accent);transform:translateY(-1px)}.calculator-key.is-operator{background:var(--accent-soft);color:var(--accent-dark)}.calculator-key.is-equals{background:var(--accent);border-color:var(--accent);color:#fff7ef}
+.calculator-history{display:none;position:absolute;inset:106px 0 0;z-index:3;flex-direction:column;background:var(--card)}.calculator-history.is-open{display:flex}.calculator-history-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--card-strong)}.calculator-history-list{flex:1;overflow:auto;padding:10px 14px}.calculator-history-item{width:100%;border:0;border-radius:14px;padding:10px;background:transparent;color:var(--text);text-align:right;cursor:pointer}.calculator-history-item:hover{background:var(--accent-soft)}.calculator-history-expression{color:var(--muted)}.calculator-history-result{margin-top:3px;font-size:23px}.calculator-history-empty{margin-top:35%;text-align:center;color:var(--muted);line-height:1.6}
+@media(max-width:560px){.calculator-window{inset:8px!important;width:auto;height:auto;border-radius:20px}.calculator-window.is-docked{inset:8px 0 8px 24px!important;height:auto}.calculator-window.is-minimized{inset:auto 0 90px auto!important;width:58px;height:58px}.calculator-key{min-height:52px}}
 </style>
 </head>
 <body>
@@ -946,6 +953,7 @@ input:focus {
       <button class="tab" data-tab="icra-yatay">İcra Hesaplama</button>
       <button class="tab" data-tab="dava">Dava Hesaplama</button>
       <button class="tab" data-tab="kapanan-dosya">Kapanan Dosya Bulma</button>
+      <button class="calculator-tab" id="open-calculator" type="button">Hesap Makinesi</button>
       <button class="ghost-button help-trigger" id="open-help-modal" type="button">Nasıl yapılır?</button>
     </nav>
 
@@ -1313,6 +1321,39 @@ Yeni Danışmanlık = (Brüt × 0,20) - (Yeni Asıl × 0,20)
     </div>
   </div>
 
+  <aside class="calculator-window" id="calculator-window" aria-hidden="true" aria-label="Hesap makinesi">
+    <div class="calculator-head" id="calculator-drag-handle">
+      <div class="calculator-window-controls" aria-label="Pencere kontrolleri">
+        <button class="calculator-window-control is-close" data-calc-action="close" title="Kapat" aria-label="Kapat"></button>
+        <button class="calculator-window-control is-minimize" data-calc-action="minimize" title="Kenarda küçült" aria-label="Kenarda küçült"></button>
+        <button class="calculator-window-control is-fullscreen" data-calc-action="fullscreen" title="Tam ekran" aria-label="Tam ekran"></button>
+      </div>
+      <div class="calculator-title">Hesap Makinesi</div>
+      <div class="calculator-tools">
+        <button class="calculator-tool" data-calc-action="history" title="İşlem geçmişi" aria-label="İşlem geçmişi">↶</button>
+        <button class="calculator-tool" data-calc-action="dock" title="Sağ kenara yerleştir" aria-label="Sağ kenara yerleştir">⇥</button>
+      </div>
+    </div>
+    <div class="calculator-tabs" id="calculator-tabs" aria-label="Hesaplama sekmeleri"></div>
+    <div class="calculator-body">
+      <div class="calculator-display" aria-live="polite">
+        <div class="calculator-expression" id="calculator-expression">&nbsp;</div>
+        <div class="calculator-result" id="calculator-result">0</div>
+      </div>
+      <div class="calculator-keys" id="calculator-keys">
+        <button class="calculator-key is-operator" data-action="clear">AC</button><button class="calculator-key is-operator" data-action="backspace">⌫</button><button class="calculator-key is-operator" data-value="%">%</button><button class="calculator-key is-operator" data-value="÷">÷</button>
+        <button class="calculator-key" data-value="7">7</button><button class="calculator-key" data-value="8">8</button><button class="calculator-key" data-value="9">9</button><button class="calculator-key is-operator" data-value="×">×</button>
+        <button class="calculator-key" data-value="4">4</button><button class="calculator-key" data-value="5">5</button><button class="calculator-key" data-value="6">6</button><button class="calculator-key is-operator" data-value="−">−</button>
+        <button class="calculator-key" data-value="1">1</button><button class="calculator-key" data-value="2">2</button><button class="calculator-key" data-value="3">3</button><button class="calculator-key is-operator" data-value="+">+</button>
+        <button class="calculator-key" data-action="sign">±</button><button class="calculator-key" data-value="0">0</button><button class="calculator-key" data-value=",">,</button><button class="calculator-key is-equals" data-action="equals">=</button>
+      </div>
+    </div>
+    <div class="calculator-history" id="calculator-history">
+      <div class="calculator-history-head"><button class="calculator-tool" data-calc-action="history">←</button><strong>İşlem Geçmişi</strong><button class="calculator-tool" data-calc-action="clear-history" title="Geçmişi sil">⌫</button></div>
+      <div class="calculator-history-list" id="calculator-history-list"></div>
+    </div>
+  </aside>
+
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script>
 const RATE_CHANGE_DATE = "2024-06-01";
@@ -1549,8 +1590,7 @@ function maxDate(a, b) {
 function currency(value) {
   const truncated = truncateMoney(value || 0);
   const sign = truncated < 0 ? "-" : "";
-  const absolute = Math.abs(truncated);
-  const totalCents = Math.trunc(absolute * 100);
+  const totalCents = Math.abs(moneyToCents(truncated));
   const whole = Math.trunc(totalCents / 100);
   const cents = String(totalCents % 100).padStart(2, "0");
   const wholeFormatted = new Intl.NumberFormat("tr-TR", {
@@ -1857,9 +1897,18 @@ function truncateMoney(value) {
   if (!Number.isFinite(value)) {
     return 0;
   }
+  const floatingPointTolerance = 1e-7;
   return value >= 0
-    ? Math.floor(value * factor) / factor
-    : Math.ceil(value * factor) / factor;
+    ? Math.floor(value * factor + floatingPointTolerance) / factor
+    : Math.ceil(value * factor - floatingPointTolerance) / factor;
+}
+
+function sumMoney(...values) {
+  return values.reduce((total, value) => total + moneyToCents(value), 0) / 100;
+}
+
+function moneyToCents(value) {
+  return Math.round(truncateMoney(toNumber(value)) * 100);
 }
 
 function calculateIcraNispiVekalet(amount) {
@@ -1899,25 +1948,25 @@ function calcIcraRow(row) {
   const harcFaiz = truncateMoney(interest(toNumber(row.harc), row.acilis, row.odeme));
   const ivuFaiz = truncateMoney(interest(toNumber(row.ilamVekalet), row.acilis, row.odeme));
 
-  const toplam = truncateMoney(
-    toNumber(row.asilAlacak) +
-    toNumber(row.gecmisFaiz) +
-    asilFaiz +
-    toNumber(row.yargilamaGideri) +
-    toNumber(row.ygGecmisFaiz) +
-    ygFaiz +
-    toNumber(row.harc) +
-    toNumber(row.harcGecmisFaiz) +
-    harcFaiz +
-    toNumber(row.ilamVekalet) +
-    toNumber(row.ivuGecmisFaiz) +
-    ivuFaiz +
-    toNumber(row.vekaletPulu) +
-    toNumber(row.tebligatGideri) +
-    toNumber(row.basvurmaHarci) +
-    toNumber(row.vekaletSuretHarci) +
-    toNumber(row.pesinHarc) +
-    toNumber(row.tahsilHarci) +
+  const toplam = sumMoney(
+    toNumber(row.asilAlacak),
+    toNumber(row.gecmisFaiz),
+    asilFaiz,
+    toNumber(row.yargilamaGideri),
+    toNumber(row.ygGecmisFaiz),
+    ygFaiz,
+    toNumber(row.harc),
+    toNumber(row.harcGecmisFaiz),
+    harcFaiz,
+    toNumber(row.ilamVekalet),
+    toNumber(row.ivuGecmisFaiz),
+    ivuFaiz,
+    toNumber(row.vekaletPulu),
+    toNumber(row.tebligatGideri),
+    toNumber(row.basvurmaHarci),
+    toNumber(row.vekaletSuretHarci),
+    toNumber(row.pesinHarc),
+    toNumber(row.tahsilHarci),
     toNumber(row.icraVekaletUcreti));
 
   return { asilFaiz, danismanlik, ygFaiz, harcFaiz, ivuFaiz, toplam };
@@ -1930,90 +1979,103 @@ function calcIcraDikey(data) {
   const harcFaiz = truncateMoney(interest(toNumber(data.harc), data.icraAcilis, data.odeme));
   const ivuFaiz = truncateMoney(interest(toNumber(data.ilamVekalet), data.icraAcilis, data.odeme));
 
-  const toplam = truncateMoney(
-    toNumber(data.asilAlacak) +
-    toNumber(data.gecmisFaiz) +
-    asilFaiz +
-    toNumber(data.yargilamaGideri) +
-    toNumber(data.ygGecmisFaiz) +
-    ygFaiz +
-    toNumber(data.harc) +
-    toNumber(data.harcGecmisFaiz) +
-    harcFaiz +
-    toNumber(data.ilamVekalet) +
-    toNumber(data.ivuGecmisFaiz) +
-    ivuFaiz +
-    toNumber(data.vekaletPulu) +
-    toNumber(data.tebligatGideri) +
-    toNumber(data.basvurmaHarci) +
-    toNumber(data.vekaletSuretHarci) +
-    toNumber(data.pesinHarc) +
-    toNumber(data.tahsilHarci) +
+  const toplam = sumMoney(
+    toNumber(data.asilAlacak),
+    toNumber(data.gecmisFaiz),
+    asilFaiz,
+    toNumber(data.yargilamaGideri),
+    toNumber(data.ygGecmisFaiz),
+    ygFaiz,
+    toNumber(data.harc),
+    toNumber(data.harcGecmisFaiz),
+    harcFaiz,
+    toNumber(data.ilamVekalet),
+    toNumber(data.ivuGecmisFaiz),
+    ivuFaiz,
+    toNumber(data.vekaletPulu),
+    toNumber(data.tebligatGideri),
+    toNumber(data.basvurmaHarci),
+    toNumber(data.vekaletSuretHarci),
+    toNumber(data.pesinHarc),
+    toNumber(data.tahsilHarci),
     toNumber(data.icraVekaletUcreti));
-
-  const indirimliToplam = truncateMoney(
-    ((((toNumber(data.asilAlacak) + toNumber(data.gecmisFaiz) + asilFaiz) * 0.8) - toNumber(data.indirimTutari)) * 1.25) +
-    (danismanlik - (((((toNumber(data.asilAlacak) + toNumber(data.gecmisFaiz) + asilFaiz) * 0.8) - toNumber(data.indirimTutari)) * 1.25) * 0.2)) +
-    (
-      toNumber(data.yargilamaGideri) +
-      toNumber(data.ygGecmisFaiz) +
-      ygFaiz +
-      toNumber(data.harc) +
-      toNumber(data.harcGecmisFaiz) +
-      harcFaiz +
-      toNumber(data.ilamVekalet) +
-      toNumber(data.ivuGecmisFaiz) +
-      ivuFaiz +
-      toNumber(data.vekaletPulu) +
-      toNumber(data.tebligatGideri) +
-      toNumber(data.basvurmaHarci) +
-      toNumber(data.vekaletSuretHarci) +
-      toNumber(data.pesinHarc) +
-      toNumber(data.tahsilHarci) +
-      toNumber(data.icraVekaletUcreti)
-    ));
 
   const yeniAsilAlacak = truncateMoney(((((toNumber(data.asilAlacak) + toNumber(data.gecmisFaiz) + asilFaiz) * 0.8) - toNumber(data.indirimTutari)) * 1.25));
   const yeniDanismanlik = truncateMoney(danismanlik - (yeniAsilAlacak * 0.2));
+  const degismeyenKalemler = sumMoney(
+    toNumber(data.yargilamaGideri),
+    toNumber(data.ygGecmisFaiz),
+    ygFaiz,
+    toNumber(data.harc),
+    toNumber(data.harcGecmisFaiz),
+    harcFaiz,
+    toNumber(data.ilamVekalet),
+    toNumber(data.ivuGecmisFaiz),
+    ivuFaiz,
+    toNumber(data.vekaletPulu),
+    toNumber(data.tebligatGideri),
+    toNumber(data.basvurmaHarci),
+    toNumber(data.vekaletSuretHarci),
+    toNumber(data.pesinHarc),
+    toNumber(data.tahsilHarci),
+    toNumber(data.icraVekaletUcreti)
+  );
+  const indirimliToplam = toNumber(data.indirimTutari) === 0
+    ? toplam
+    : sumMoney(yeniAsilAlacak, yeniDanismanlik, degismeyenKalemler);
 
   const kesinlesmeCarpani = String(data.dosyaKesinlesmis || "evet").toLowerCase() === "hayir" ? 0.75 : 1;
-  const eklenenKalemler = truncateMoney(
-    toNumber(data.harcGecmisFaiz) +
-    harcFaiz +
-    toNumber(data.ivuGecmisFaiz) +
-    ivuFaiz +
-    ygFaiz +
+  const eklenenKalemler = sumMoney(
+    toNumber(data.harcGecmisFaiz),
+    harcFaiz,
+    toNumber(data.ivuGecmisFaiz),
+    ivuFaiz,
+    ygFaiz,
     toNumber(data.ygGecmisFaiz)
   );
-  const vekaletHavuzu = truncateMoney(toNumber(data.icraVekaletUcreti) + eklenenKalemler);
-  const takipTutari = (
-    toNumber(data.asilAlacak) +
-    toNumber(data.gecmisFaiz) +
-    toNumber(data.yargilamaGideri) +
-    toNumber(data.ygGecmisFaiz) +
-    toNumber(data.harc) +
-    toNumber(data.harcGecmisFaiz) +
-    toNumber(data.ilamVekalet) +
+  const vekaletHavuzu = sumMoney(toNumber(data.icraVekaletUcreti), eklenenKalemler);
+  const takipTutari = sumMoney(
+    toNumber(data.asilAlacak),
+    toNumber(data.gecmisFaiz),
+    toNumber(data.yargilamaGideri),
+    toNumber(data.ygGecmisFaiz),
+    toNumber(data.harc),
+    toNumber(data.harcGecmisFaiz),
+    toNumber(data.ilamVekalet),
     toNumber(data.ivuGecmisFaiz)
   );
 
-  const ilamliFaiz = truncateMoney(toNumber(data.gecmisFaiz) + asilFaiz);
+  const ilamliFaiz = sumMoney(toNumber(data.gecmisFaiz), asilFaiz);
   const ilamliNispiTavan = truncateMoney(calculateIcraNispiVekalet(takipTutari) * kesinlesmeCarpani);
   const ilamliVekalet = truncateMoney(Math.min(vekaletHavuzu, ilamliNispiTavan));
   const ilamliVekaletArtan = truncateMoney(Math.max(0, vekaletHavuzu - ilamliNispiTavan));
-  const ilamliIlamVu = truncateMoney(toNumber(data.ilamVekalet) + ilamliVekaletArtan);
-  const ilamliIcraMasrafi = truncateMoney(toNumber(data.vekaletPulu) + toNumber(data.tebligatGideri) + toNumber(data.basvurmaHarci) + toNumber(data.vekaletSuretHarci) + toNumber(data.pesinHarc) + toNumber(data.tahsilHarci));
-  const ilamliMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.harc));
+  const ilamliIcraMasrafi = sumMoney(toNumber(data.vekaletPulu), toNumber(data.tebligatGideri), toNumber(data.basvurmaHarci), toNumber(data.vekaletSuretHarci), toNumber(data.pesinHarc), toNumber(data.tahsilHarci));
+  const ilamliMahkemeYg = sumMoney(toNumber(data.yargilamaGideri), toNumber(data.harc));
   const ilamliToplam = toplam;
+  const ilamliIlamVu = sumMoney(
+    ilamliToplam,
+    -toNumber(data.asilAlacak),
+    -ilamliFaiz,
+    -ilamliVekalet,
+    -ilamliIcraMasrafi,
+    -ilamliMahkemeYg
+  );
 
-  const ilamsizFaiz = truncateMoney(toNumber(data.gecmisFaiz) + asilFaiz);
+  const ilamsizFaiz = sumMoney(toNumber(data.gecmisFaiz), asilFaiz);
   const ilamsizMaktuTavan = truncateMoney(ICRA_MAKTU_VEKALET * kesinlesmeCarpani);
   const ilamsizVekalet = truncateMoney(Math.min(vekaletHavuzu, ilamsizMaktuTavan));
   const ilamsizVekaletArtan = truncateMoney(Math.max(0, vekaletHavuzu - ilamsizMaktuTavan));
-  const ilamsizIcraMasrafi = truncateMoney(toNumber(data.vekaletPulu) + toNumber(data.tebligatGideri) + toNumber(data.basvurmaHarci) + toNumber(data.vekaletSuretHarci) + toNumber(data.pesinHarc) + toNumber(data.tahsilHarci));
-  const ilamsizIlamVu = truncateMoney(toNumber(data.ilamVekalet) + ilamsizVekaletArtan);
-  const ilamsizMahkemeYg = truncateMoney(toNumber(data.yargilamaGideri) + toNumber(data.harc));
+  const ilamsizIcraMasrafi = sumMoney(toNumber(data.vekaletPulu), toNumber(data.tebligatGideri), toNumber(data.basvurmaHarci), toNumber(data.vekaletSuretHarci), toNumber(data.pesinHarc), toNumber(data.tahsilHarci));
+  const ilamsizMahkemeYg = sumMoney(toNumber(data.yargilamaGideri), toNumber(data.harc));
   const ilamsizToplam = toplam;
+  const ilamsizIlamVu = sumMoney(
+    ilamsizToplam,
+    -toNumber(data.asilAlacak),
+    -ilamsizFaiz,
+    -ilamsizVekalet,
+    -ilamsizIcraMasrafi,
+    -ilamsizMahkemeYg
+  );
 
   return {
     asilFaiz,
@@ -2056,14 +2118,14 @@ function calcDavaRow(row) {
   const ygFaiz = truncateMoney(interest(toNumber(row.yargilamaGideri), row.kararTarihi, row.odemeTarihi));
   const harcFaiz = truncateMoney(interest(toNumber(row.harc), row.kararTarihi, row.odemeTarihi));
   const ivuFaiz = truncateMoney(interest(toNumber(row.icraVekaletUcreti), row.kararTarihi, row.odemeTarihi));
-  const toplam = truncateMoney(
-    toNumber(row.asilAlacak) +
-    asilFaiz +
-    toNumber(row.yargilamaGideri) +
-    ygFaiz +
-    toNumber(row.harc) +
-    harcFaiz +
-    toNumber(row.icraVekaletUcreti) +
+  const toplam = sumMoney(
+    toNumber(row.asilAlacak),
+    asilFaiz,
+    toNumber(row.yargilamaGideri),
+    ygFaiz,
+    toNumber(row.harc),
+    harcFaiz,
+    toNumber(row.icraVekaletUcreti),
     ivuFaiz);
 
   return { asilFaiz, danismanlik, ygFaiz, harcFaiz, ivuFaiz, toplam };
@@ -2149,30 +2211,29 @@ function renderIcraDiscountSummary() {
   const first = state.icraRows[0];
   const result = calcIcraRow(first);
   const indirimTutari = toNumber(state.icraIndirimTutari);
-  const indirimliToplam =
-    ((((toNumber(first.asilAlacak) + toNumber(first.gecmisFaiz) + result.asilFaiz) * 0.8) - indirimTutari) * 1.25) +
-    (result.danismanlik - (((((toNumber(first.asilAlacak) + toNumber(first.gecmisFaiz) + result.asilFaiz) * 0.8) - indirimTutari) * 1.25) * 0.2)) +
-    (
-      toNumber(first.yargilamaGideri) +
-      toNumber(first.ygGecmisFaiz) +
-      result.ygFaiz +
-      toNumber(first.harc) +
-      toNumber(first.harcGecmisFaiz) +
-      result.harcFaiz +
-      toNumber(first.ilamVekalet) +
-      toNumber(first.ivuGecmisFaiz) +
-      result.ivuFaiz +
-      toNumber(first.vekaletPulu) +
-      toNumber(first.tebligatGideri) +
-      toNumber(first.basvurmaHarci) +
-      toNumber(first.vekaletSuretHarci) +
-      toNumber(first.pesinHarc) +
-      toNumber(first.tahsilHarci) +
-      toNumber(first.icraVekaletUcreti)
-    );
-
-  const yeniAsilAlacak = ((((toNumber(first.asilAlacak) + toNumber(first.gecmisFaiz) + result.asilFaiz) * 0.8) - indirimTutari) * 1.25);
-  const yeniDanismanlik = result.danismanlik - (yeniAsilAlacak * 0.2);
+  const yeniAsilAlacak = truncateMoney(((((toNumber(first.asilAlacak) + toNumber(first.gecmisFaiz) + result.asilFaiz) * 0.8) - indirimTutari) * 1.25));
+  const yeniDanismanlik = truncateMoney(result.danismanlik - (yeniAsilAlacak * 0.2));
+  const degismeyenKalemler = sumMoney(
+    toNumber(first.yargilamaGideri),
+    toNumber(first.ygGecmisFaiz),
+    result.ygFaiz,
+    toNumber(first.harc),
+    toNumber(first.harcGecmisFaiz),
+    result.harcFaiz,
+    toNumber(first.ilamVekalet),
+    toNumber(first.ivuGecmisFaiz),
+    result.ivuFaiz,
+    toNumber(first.vekaletPulu),
+    toNumber(first.tebligatGideri),
+    toNumber(first.basvurmaHarci),
+    toNumber(first.vekaletSuretHarci),
+    toNumber(first.pesinHarc),
+    toNumber(first.tahsilHarci),
+    toNumber(first.icraVekaletUcreti)
+  );
+  const indirimliToplam = indirimTutari === 0
+    ? result.toplam
+    : sumMoney(yeniAsilAlacak, yeniDanismanlik, degismeyenKalemler);
 
   container.innerHTML = `
     <div class="card accent">
@@ -2870,7 +2931,280 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+function initCalculatorTool() {
+  const win = document.getElementById("calculator-window");
+  const opener = document.getElementById("open-calculator");
+  const handle = document.getElementById("calculator-drag-handle");
+  const expressionEl = document.getElementById("calculator-expression");
+  const resultEl = document.getElementById("calculator-result");
+  const keys = document.getElementById("calculator-keys");
+  const tabsEl = document.getElementById("calculator-tabs");
+  const historyPanel = document.getElementById("calculator-history");
+  const historyList = document.getElementById("calculator-history-list");
+  if (!win || !opener || !handle || !expressionEl || !resultEl || !keys || !tabsEl || !historyPanel || !historyList) return;
+
+  let calcTabs = [{id: 1, expression: "", justCalculated: false}];
+  let activeCalcTabId = 1;
+  try {
+    const storedTabs = JSON.parse(localStorage.getItem("mulazim-calculator-tabs") || "null");
+    if (Array.isArray(storedTabs) && storedTabs.length) calcTabs = storedTabs;
+    activeCalcTabId = Number(localStorage.getItem("mulazim-calculator-active-tab")) || calcTabs[0].id;
+    if (!calcTabs.some(tab => tab.id === activeCalcTabId)) activeCalcTabId = calcTabs[0].id;
+  } catch (_) {}
+  let expression = calcTabs.find(tab => tab.id === activeCalcTabId)?.expression || "";
+  let justCalculated = calcTabs.find(tab => tab.id === activeCalcTabId)?.justCalculated || false;
+  let calcHistory = [];
+  try { calcHistory = JSON.parse(localStorage.getItem("mulazim-calculator-history") || "[]"); } catch (_) {}
+  const operators = ["+", "−", "×", "÷"];
+  let pendingPasteExpression = operators.includes(expression.at(-1)) ? expression : "";
+  const escapeCalcHtml = value => String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[char]);
+
+  function saveCalcTabs() {
+    const active = calcTabs.find(tab => tab.id === activeCalcTabId);
+    if (active) { active.expression = expression; active.justCalculated = justCalculated; }
+    try {
+      localStorage.setItem("mulazim-calculator-tabs", JSON.stringify(calcTabs));
+      localStorage.setItem("mulazim-calculator-active-tab", String(activeCalcTabId));
+    } catch (_) {}
+  }
+
+  function renderCalcTabs() {
+    tabsEl.innerHTML = calcTabs.map((tab, index) => `<button class="calculator-tab-item${tab.id === activeCalcTabId ? " is-active" : ""}" data-calc-tab="${tab.id}" title="${index + 1}. hesaplama"><span>${index + 1}</span>${calcTabs.length > 1 ? `<span class="calculator-tab-close" data-calc-tab-close="${tab.id}" title="Sekmeyi kapat" aria-label="Sekmeyi kapat">×</span>` : ""}</button>`).join("") + '<button class="calculator-tab-add" data-calc-tab-add title="Yeni hesaplama ekle" aria-label="Yeni hesaplama ekle">+</button>';
+  }
+
+  function switchCalcTab(id) {
+    saveCalcTabs();
+    const next = calcTabs.find(tab => tab.id === id); if (!next) return;
+    activeCalcTabId = id; expression = next.expression || ""; justCalculated = Boolean(next.justCalculated);
+    pendingPasteExpression = operators.includes(expression.at(-1)) ? expression : "";
+    renderCalcTabs(); updateCalcDisplay();
+  }
+
+  function tokenizeCalc(value) {
+    const source = value.replace(/,/g, ".").replace(/−/g, "-").replace(/×/g, "*").replace(/÷/g, "/").replace(/\s/g, "");
+    const tokens = []; let number = "";
+    for (let i = 0; i < source.length; i++) {
+      const char = source[i];
+      if (/[\d.]/.test(char) || (char === "-" && (i === 0 || "+-*/".includes(source[i - 1])))) number += char;
+      else if ("+-*/%".includes(char)) {
+        if (number && number !== "-") { tokens.push(Number(number)); number = ""; }
+        tokens.push(char);
+      } else throw new Error("Geçersiz ifade");
+    }
+    if (number && number !== "-") tokens.push(Number(number));
+    return tokens;
+  }
+
+  function calculateCalc(value) {
+    const tokens = tokenizeCalc(value);
+    if (!tokens.length || (typeof tokens.at(-1) === "string" && tokens.at(-1) !== "%")) throw new Error("Eksik ifade");
+    const values = [], ops = [], priority = {"+":1,"-":1,"*":2,"/":2};
+    const normalizeResult = number => Math.round((number + Math.sign(number) * Number.EPSILON) * 1e10) / 1e10;
+    const apply = () => {
+      const op = ops.pop(), b = values.pop(), a = values.pop();
+      if (a === undefined || b === undefined) throw new Error("Eksik ifade");
+      if (op === "/" && b === 0) throw new Error("Sıfıra bölünemez");
+      values.push(normalizeResult(op === "+" ? a+b : op === "-" ? a-b : op === "*" ? a*b : a/b));
+    };
+    tokens.forEach(token => {
+      if (typeof token === "number") values.push(token);
+      else if (token === "%") { if (!values.length) throw new Error("Eksik ifade"); values[values.length - 1] /= 100; }
+      else { while (ops.length && priority[ops.at(-1)] >= priority[token]) apply(); ops.push(token); }
+    });
+    while (ops.length) apply();
+    if (values.length !== 1 || !Number.isFinite(values[0])) throw new Error("Tanımsız");
+    return values[0];
+  }
+
+  function formatCalc(number) {
+    const rounded = Math.abs(number) < 1e-12 ? 0 : Number(number.toPrecision(12));
+    return String(rounded).replace(/-/g, "−").replace(".", ",");
+  }
+
+  function updateCalcDisplay() {
+    expressionEl.textContent = expression || "\u00a0";
+    expressionEl.scrollLeft = expressionEl.scrollWidth;
+    if (!expression) { resultEl.textContent = "0"; resultEl.classList.remove("is-preview"); saveCalcTabs(); return; }
+    try { resultEl.textContent = formatCalc(calculateCalc(expression)); resultEl.classList.add("is-preview"); }
+    catch (_) { resultEl.textContent = expression.match(/(?:^|[+−×÷])([−]?[\d,]+%?)$/)?.[1] || "0"; resultEl.classList.remove("is-preview"); }
+    saveCalcTabs();
+  }
+
+  function calcInput(value) {
+    if (/\d/.test(value)) { if (justCalculated) expression = ""; if (expression.split(/[+−×÷]/).pop() === "0") expression = expression.slice(0,-1); expression += value; }
+    else if (value === ",") { if (justCalculated) expression = ""; const current = expression.split(/[+−×÷]/).pop().replace("%",""); if (!current.includes(",")) expression += current ? "," : "0,"; }
+    else if (value === "%") { if (/\d$/.test(expression)) expression += "%"; }
+    else if (operators.includes(value)) { if (!expression && value === "−") expression = "−"; else if (expression !== "−" && operators.includes(expression.at(-1))) expression = expression.slice(0,-1)+value; else if (expression && expression.at(-1) !== ",") expression += value; }
+    pendingPasteExpression = operators.includes(value) ? expression : "";
+    justCalculated = false; updateCalcDisplay();
+  }
+
+  function calcEquals() {
+    try {
+      const answer = formatCalc(calculateCalc(expression));
+      calcHistory.unshift({expression, result: answer}); calcHistory = calcHistory.slice(0,50);
+      try { localStorage.setItem("mulazim-calculator-history", JSON.stringify(calcHistory)); } catch (_) {}
+      expressionEl.textContent = expression + " ="; resultEl.textContent = answer; resultEl.classList.remove("is-preview");
+      expression = answer; justCalculated = true; pendingPasteExpression = ""; saveCalcTabs(); renderCalcHistory();
+    } catch (error) { resultEl.textContent = error.message; resultEl.classList.remove("is-preview"); }
+  }
+
+  function renderCalcHistory() {
+    historyList.innerHTML = calcHistory.length ? calcHistory.map((item,index) => `<button class="calculator-history-item" data-calc-history="${index}"><div class="calculator-history-expression">${escapeCalcHtml(item.expression)}</div><div class="calculator-history-result">${escapeCalcHtml(item.result)}</div></button>`).join("") : '<div class="calculator-history-empty">Henüz işlem yok.<br>Hesaplamalar burada görünecek.</div>';
+  }
+
+  function pasteCalcText(rawText) {
+    const normalizePastedNumber = value => {
+      const lastDot = value.lastIndexOf(".");
+      const lastComma = value.lastIndexOf(",");
+      if (lastDot >= 0 && lastComma >= 0) {
+        if (lastComma > lastDot) return value.replace(/\./g, "");
+        return value.replace(/,/g, "").replace(".", ",");
+      }
+      if (lastDot >= 0) {
+        const parts = value.split(".");
+        const looksLikeThousands = parts.length > 2 || (parts.length === 2 && parts[1].length === 3 && parts[0].length <= 3);
+        return looksLikeThousands ? parts.join("") : value.replace(".", ",");
+      }
+      if ((value.match(/,/g) || []).length > 1) {
+        const parts = value.split(",");
+        const decimal = parts.pop();
+        return parts.join("") + "," + decimal;
+      }
+      return value;
+    };
+    const prepared = String(rawText || "").split("=")[0]
+      .replace(/\*{2,}/g, "").replace(/[xX*]/g, "×").replace(/\//g, "÷").replace(/[–—-]/g, "−").replace(/\s/g, "");
+    const text = prepared.replace(/\d[\d.,]*/g, normalizePastedNumber).replace(/[^0-9,+−×÷%]/g, "");
+    if (!/\d/.test(text)) return false;
+    const prefix = operators.includes(expression.at(-1)) ? expression : pendingPasteExpression;
+    expression = prefix && operators.includes(prefix.at(-1)) ? prefix + text : text;
+    pendingPasteExpression = "";
+    justCalculated = false; updateCalcDisplay();
+    return true;
+  }
+
+  function calcClipboardAllowed() {
+    if (!win.classList.contains("is-open") || win.classList.contains("is-minimized")) return false;
+    const active = document.activeElement;
+    return !(active && (active.matches("input, textarea, select") || active.isContentEditable) && !win.contains(active));
+  }
+
+  function hasSelectionOutsideCalculator() {
+    const selection = window.getSelection?.();
+    if (!selection || selection.isCollapsed || !selection.toString().trim()) return false;
+    const anchor = selection.anchorNode instanceof Element ? selection.anchorNode : selection.anchorNode?.parentElement;
+    const focus = selection.focusNode instanceof Element ? selection.focusNode : selection.focusNode?.parentElement;
+    return !win.contains(anchor) || !win.contains(focus);
+  }
+
+  async function copyCalcResult() {
+    const value = resultEl.textContent.trim() || expression;
+    if (!value) return;
+    try { await navigator.clipboard.writeText(value); }
+    catch (_) {
+      const area = document.createElement("textarea"); area.value = value; area.style.position = "fixed"; area.style.opacity = "0";
+      document.body.appendChild(area); area.select(); document.execCommand("copy"); area.remove();
+    }
+  }
+
+  async function pasteFromClipboard() {
+    try { pasteCalcText(await navigator.clipboard.readText()); }
+    catch (_) { resultEl.textContent = "Ctrl+V ile yapıştırın"; resultEl.classList.remove("is-preview"); }
+  }
+
+  function setCalcOpen(open) {
+    win.classList.toggle("is-open", open); opener.classList.toggle("is-open", open); win.setAttribute("aria-hidden", open ? "false" : "true");
+  }
+  opener.addEventListener("click", () => { setCalcOpen(!win.classList.contains("is-open")); win.classList.remove("is-minimized"); });
+  tabsEl.addEventListener("click", event => {
+    const closeButton = event.target.closest("[data-calc-tab-close]");
+    if (closeButton && calcTabs.length > 1) {
+      const closingId = Number(closeButton.dataset.calcTabClose);
+      const closingIndex = calcTabs.findIndex(tab => tab.id === closingId);
+      calcTabs = calcTabs.filter(tab => tab.id !== closingId);
+      if (activeCalcTabId === closingId) {
+        const next = calcTabs[Math.min(closingIndex, calcTabs.length - 1)];
+        activeCalcTabId = next.id; expression = next.expression || ""; justCalculated = Boolean(next.justCalculated); pendingPasteExpression = operators.includes(expression.at(-1)) ? expression : "";
+      }
+      renderCalcTabs(); updateCalcDisplay();
+      return;
+    }
+    const tabButton = event.target.closest("[data-calc-tab]");
+    if (tabButton) { switchCalcTab(Number(tabButton.dataset.calcTab)); return; }
+    if (event.target.closest("[data-calc-tab-add]")) {
+      saveCalcTabs();
+      const nextId = Math.max(0, ...calcTabs.map(tab => tab.id)) + 1;
+      calcTabs.push({id: nextId, expression: "", justCalculated: false});
+      activeCalcTabId = nextId; expression = ""; justCalculated = false; pendingPasteExpression = "";
+      renderCalcTabs(); updateCalcDisplay();
+    }
+  });
+  keys.addEventListener("click", event => {
+    const key = event.target.closest(".calculator-key"); if (!key) return;
+    if (key.dataset.value) calcInput(key.dataset.value);
+    else if (key.dataset.action === "clear") { expression=""; justCalculated=false; pendingPasteExpression=""; updateCalcDisplay(); }
+    else if (key.dataset.action === "backspace") { expression=expression.slice(0,-1); justCalculated=false; pendingPasteExpression=operators.includes(expression.at(-1))?expression:""; updateCalcDisplay(); }
+    else if (key.dataset.action === "equals") calcEquals();
+    else if (key.dataset.action === "sign") { const match=expression.match(/(^|[+−×÷])([−]?\d+(?:,\d+)?%?)$/); if(match){const start=match.index+match[1].length,n=match[2];expression=expression.slice(0,start)+(n.startsWith("−")?n.slice(1):"−"+n);updateCalcDisplay();} }
+  });
+  document.addEventListener("keydown", event => {
+    if (!win.classList.contains("is-open") || win.classList.contains("is-minimized")) return;
+    const active = document.activeElement;
+    const isTypingField = active && (active.matches("input, textarea, select") || active.isContentEditable);
+    if (isTypingField && !win.contains(active)) return;
+
+    let handled = true;
+    if (/^\d$/.test(event.key)) calcInput(event.key);
+    else if (event.key === "+") calcInput("+");
+    else if (event.key === "-") calcInput("−");
+    else if (event.key === "*") calcInput("×");
+    else if (event.key === "/") calcInput("÷");
+    else if (event.key === "." || event.key === "," || event.key === "Decimal") calcInput(",");
+    else if (event.key === "%") calcInput("%");
+    else if (event.key === "Enter" || event.key === "=") calcEquals();
+    else if (event.key === "Backspace") { expression = expression.slice(0,-1); justCalculated = false; pendingPasteExpression=operators.includes(expression.at(-1))?expression:""; updateCalcDisplay(); }
+    else if (event.key === "Delete") { expression = ""; justCalculated = false; pendingPasteExpression=""; updateCalcDisplay(); }
+    else if (event.key === "Escape") { expression = ""; justCalculated = false; pendingPasteExpression=""; updateCalcDisplay(); }
+    else handled = false;
+
+    if (handled) event.preventDefault();
+  });
+  document.addEventListener("copy", event => {
+    if (!calcClipboardAllowed() || hasSelectionOutsideCalculator() || !event.clipboardData) return;
+    event.clipboardData.setData("text/plain", resultEl.textContent.trim() || expression);
+    event.preventDefault();
+  });
+  document.addEventListener("paste", event => {
+    if (event.defaultPrevented || !calcClipboardAllowed() || !event.clipboardData) return;
+    if (pasteCalcText(event.clipboardData.getData("text/plain"))) event.preventDefault();
+  });
+  win.addEventListener("click", event => {
+    const action = event.target.closest("[data-calc-action]")?.dataset.calcAction; if (!action) return;
+    if (action === "close") setCalcOpen(false);
+    if (action === "copy") copyCalcResult();
+    if (action === "paste") pasteFromClipboard();
+    if (action === "history") historyPanel.classList.toggle("is-open");
+    if (action === "minimize") { win.classList.toggle("is-minimized"); win.classList.remove("is-fullscreen","is-docked"); }
+    if (action === "fullscreen") { win.classList.toggle("is-fullscreen"); win.classList.remove("is-minimized","is-docked"); }
+    if (action === "dock") { win.classList.toggle("is-docked"); win.classList.remove("is-minimized","is-fullscreen"); }
+    if (action === "clear-history") { calcHistory=[]; try{localStorage.removeItem("mulazim-calculator-history");}catch(_){} renderCalcHistory(); }
+  });
+  historyList.addEventListener("click", event => { const item=event.target.closest("[data-calc-history]"); if(!item)return; expression=calcHistory[Number(item.dataset.calcHistory)].result; justCalculated=true; historyPanel.classList.remove("is-open"); updateCalcDisplay(); });
+
+  let drag = null;
+  handle.addEventListener("pointerdown", event => {
+    if (event.target.closest("button") || win.classList.contains("is-fullscreen") || win.classList.contains("is-docked") || win.classList.contains("is-minimized")) return;
+    const rect=win.getBoundingClientRect(); drag={x:event.clientX-rect.left,y:event.clientY-rect.top}; handle.setPointerCapture(event.pointerId);
+  });
+  handle.addEventListener("pointermove", event => { if(!drag)return; const left=Math.max(0,Math.min(innerWidth-win.offsetWidth,event.clientX-drag.x)); const top=Math.max(0,Math.min(innerHeight-win.offsetHeight,event.clientY-drag.y)); win.style.left=left+"px";win.style.top=top+"px";win.style.right="auto"; });
+  handle.addEventListener("pointerup", () => { if(!drag)return; drag=null; try{localStorage.setItem("mulazim-calculator-position",JSON.stringify({left:win.style.left,top:win.style.top}));}catch(_){} });
+  try { const pos=JSON.parse(localStorage.getItem("mulazim-calculator-position")||"null"); if(pos&&innerWidth>560){win.style.left=pos.left;win.style.top=pos.top;win.style.right="auto";} } catch (_) {}
+  renderCalcTabs(); renderCalcHistory(); updateCalcDisplay();
+}
+
 initTheme();
+initCalculatorTool();
 renderAll();
 
 </script>
