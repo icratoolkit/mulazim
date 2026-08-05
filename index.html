@@ -1112,22 +1112,27 @@ input:focus {
 
           <h2>1. Faiz Oranları ve Hesaplanan Faiz</h2>
           <div class="card accent">
-            <p>İndirim hesabına geçmeden önce, borç kalemleri üzerinden <strong>günlük faiz</strong> hesaplanır. Uygulama iki farklı dönem kullanır:</p>
+            <p>İndirim hesabına geçmeden önce, borç kalemleri üzerinden <strong>günlük faiz</strong> hesaplanır. Uygulama üç farklı dönem kullanır:</p>
             <div class="rate-box">
               <div class="rate-item">
                 <div class="rate-period">İcra açılışından - 31.05.2024'e kadar</div>
                 <div class="rate-val">%9 / Yıl</div>
               </div>
               <div class="rate-item">
-                <div class="rate-period">01.06.2024 tarihinden itibaren</div>
+                <div class="rate-period">01.06.2024 - 30.07.2026 tarihleri arası</div>
                 <div class="rate-val">%24 / Yıl</div>
+              </div>
+              <div class="rate-item">
+                <div class="rate-period">31.07.2026 tarihinden itibaren</div>
+                <div class="rate-val">%31 / Yıl</div>
               </div>
             </div>
             <div class="formula-box">Faiz = Anapara × Gün × Oran / 365
 
 Toplam Faiz =
-  (Anapara × GünSayısı_Önceki × 0,09 / 365)
-+ (Anapara × GünSayısı_Sonraki × 0,24 / 365)</div>
+  (Anapara × GünSayısı_1.Dönem × 0,09 / 365)
++ (Anapara × GünSayısı_2.Dönem × 0,24 / 365)
++ (Anapara × GünSayısı_3.Dönem × 0,31 / 365)</div>
             <p>Bu hesaplama; <strong>Asıl Alacak</strong>, <strong>Yargılama Gideri</strong>, <strong>Harç</strong> ve <strong>İlam Vekalet Ücreti</strong> için ayrı ayrı yapılır.</p>
           </div>
 
@@ -1357,6 +1362,7 @@ Yeni Danışmanlık = (Brüt × 0,20) - (Yeni Asıl × 0,20)
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script>
 const RATE_CHANGE_DATE = "2024-06-01";
+const RATE_CHANGE_DATE_2 = "2026-07-31";
 const TODAY_DEFAULT = new Date().toLocaleDateString("tr-TR");
 
 const defaults = {
@@ -1567,8 +1573,11 @@ function interest(principal, startDate, endDate) {
   }
   const firstEnd = diffDays(startDate, minDate(endDate, RATE_CHANGE_DATE));
   const secondStart = maxDate(startDate, RATE_CHANGE_DATE);
-  const secondDays = diffDays(secondStart, endDate);
-  return principal * firstEnd * 0.09 / 365 + principal * secondDays * 0.24 / 365;
+  const secondEnd = minDate(endDate, RATE_CHANGE_DATE_2);
+  const secondDays = diffDays(secondStart, secondEnd);
+  const thirdStart = maxDate(startDate, RATE_CHANGE_DATE_2);
+  const thirdDays = diffDays(thirdStart, endDate);
+  return principal * firstEnd * 0.09 / 365 + principal * secondDays * 0.24 / 365 + principal * thirdDays * 0.31 / 365;
 }
 
 function minDate(a, b) {
