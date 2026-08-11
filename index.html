@@ -1423,6 +1423,27 @@ const defaults = {
 };
 
 const state = structuredClone(defaults);
+const emptyIcraDikey = {
+  icraAcilis: "",
+  odeme: "",
+  dosyaKesinlesmis: "evet",
+  indirimTutari: "",
+  asilAlacak: "",
+  gecmisFaiz: "",
+  yargilamaGideri: "",
+  ygGecmisFaiz: "",
+  harc: "",
+  harcGecmisFaiz: "",
+  ilamVekalet: "",
+  ivuGecmisFaiz: "",
+  vekaletPulu: "",
+  tebligatGideri: "",
+  basvurmaHarci: "",
+  vekaletSuretHarci: "",
+  pesinHarc: "",
+  tahsilHarci: "",
+  icraVekaletUcreti: ""
+};
 const icraDikeyPasteMap = {
   "İcra Açılış Tarihi": { field: "icraAcilis", type: "date" },
   "Ödeme Tarihi": { field: "odeme", type: "date" },
@@ -1669,6 +1690,16 @@ function formatDisplayDate(date) {
   return `${day}.${month}.${year}`;
 }
 
+function toDateInputValue(value) {
+  const date = parseDateValue(value);
+  return date ? formatIsoDate(date) : "";
+}
+
+function toDisplayDate(value) {
+  const date = parseDateValue(value);
+  return date ? formatDisplayDate(date) : String(value ?? "");
+}
+
 function parseDateValue(value) {
   const text = String(value || "").trim();
   if (!text) {
@@ -1880,7 +1911,9 @@ function getIcraDikeyCopyText() {
       ? currency(toNumber(rawValue))
       : type === "text"
         ? (String(rawValue || "").toLowerCase() === "hayir" ? "Hayır" : "Evet")
-        : String(rawValue || "");
+        : type === "date"
+          ? toDisplayDate(rawValue)
+          : String(rawValue || "");
     return `${label}\t${value}`;
   }).join("\n");
 }
@@ -2298,10 +2331,13 @@ function renderIcraDikey() {
     <div class="stack-form">
       ${fields.map(([kind, type, label, valueOrField]) => {
         if (kind === "input") {
+          const inputHtml = type === "date"
+            ? `<input type="date" value="${toDateInputValue(data[valueOrField])}" data-section="icraDikey" data-field="${valueOrField}">`
+            : `<input type="${type === "number" ? "text" : type}" ${type === "number" ? 'inputmode="decimal"' : ""} value="${data[valueOrField] ?? ""}" data-section="icraDikey" data-field="${valueOrField}">`;
           return `
             <div class="stack-row">
               <div class="stack-label">${label}</div>
-              <input type="${type === "number" || type === "date" ? "text" : type}" ${type === "number" ? 'inputmode="decimal"' : ""} ${type === "date" ? 'inputmode="numeric" placeholder="gg.aa.yyyy"' : ""} value="${data[valueOrField] ?? ""}" data-section="icraDikey" data-field="${valueOrField}">
+              ${inputHtml}
             </div>
           `;
         }
@@ -2888,6 +2924,8 @@ document.addEventListener("click", (event) => {
     if (pasteBox instanceof HTMLTextAreaElement) {
       pasteBox.value = "";
     }
+    state.icraDikey = { ...emptyIcraDikey };
+    renderAll();
     return;
   }
 
