@@ -916,6 +916,415 @@ input:focus {
   }
 }
 
+/* ===== Excel Eşleştirici ===== */
+:root {
+  --xm-a: #5b4bc4;
+  --xm-a-strong: #443398;
+  --xm-a-soft: #ece9fb;
+  --xm-b: #1f7a52;
+  --xm-b-strong: #155c3c;
+  --xm-b-soft: #dff1e7;
+}
+
+:root[data-theme="dark"] {
+  --xm-a: #a99cf2;
+  --xm-a-strong: #c7bdff;
+  --xm-a-soft: #322a55;
+  --xm-b: #7fc9a1;
+  --xm-b-strong: #a2dcbc;
+  --xm-b-soft: #204030;
+}
+
+.xm-card {
+  margin-bottom: 16px;
+}
+
+.xm-step-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.xm-step-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.xm-num {
+  display: inline-grid;
+  place-items: center;
+  min-width: 34px;
+  height: 28px;
+  padding: 0 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.xm-hint {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.xm-drop {
+  border: 1.5px dashed var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  background: color-mix(in srgb, var(--card) 86%, transparent);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.xm-drop:hover,
+.xm-drop.is-over {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.xm-drop:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.xm-drop input[type="file"] {
+  display: none;
+}
+
+.xm-drop.is-a.is-loaded {
+  border-style: solid;
+  border-color: var(--xm-a);
+  background: var(--xm-a-soft);
+}
+
+.xm-drop.is-b.is-loaded {
+  border-style: solid;
+  border-color: var(--xm-b);
+  background: var(--xm-b-soft);
+}
+
+.xm-tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.xm-tag.is-a {
+  color: var(--xm-a);
+}
+
+.xm-tag.is-b {
+  color: var(--xm-b);
+}
+
+.xm-fname {
+  margin: 8px 0 2px;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.xm-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.xm-field {
+  margin-top: 14px;
+}
+
+.xm-field label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+#excel-eslestirici select {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--input-bg);
+  color: var(--text);
+  font: inherit;
+}
+
+#excel-eslestirici select:focus {
+  outline: 2px solid rgba(184, 92, 56, 0.2);
+  border-color: var(--accent);
+}
+
+#excel-eslestirici select:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+#excel-eslestirici input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.xm-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.xm-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: var(--surface-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.xm-opt:hover {
+  border-color: var(--accent);
+}
+
+.xm-opt:has(input:checked) {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+}
+
+#excel-eslestirici .xm-opt input {
+  accent-color: var(--accent);
+}
+
+.xm-pickhead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.xm-pickhead .xm-tag {
+  margin-right: auto;
+}
+
+.ghost-button.xm-mini {
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.ghost-button.xm-mini:hover {
+  color: var(--accent-dark);
+}
+
+.xm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 7px;
+  max-height: 224px;
+  overflow: auto;
+  padding: 2px;
+}
+
+.xm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 6px 11px;
+  background: var(--card);
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.xm-chip span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#excel-eslestirici .xm-chip.is-a input {
+  accent-color: var(--xm-a);
+}
+
+#excel-eslestirici .xm-chip.is-b input {
+  accent-color: var(--xm-b);
+}
+
+.xm-chip.is-a:has(input:checked) {
+  border-color: var(--xm-a);
+  background: var(--xm-a-soft);
+  color: var(--xm-a-strong);
+}
+
+.xm-chip.is-b:has(input:checked) {
+  border-color: var(--xm-b);
+  background: var(--xm-b-soft);
+  color: var(--xm-b-strong);
+}
+
+.xm-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.xm-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.xm-run,
+.xm-dl {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.xm-run {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff7ef;
+}
+
+.xm-dl {
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--card);
+}
+
+.xm-run:hover:not(:disabled),
+.xm-dl:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.xm-run:disabled,
+.xm-dl:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.xm-name-field {
+  flex: 1;
+  min-width: 190px;
+}
+
+.xm-summary {
+  display: none;
+  margin-top: 18px;
+}
+
+.xm-summary.is-visible {
+  display: block;
+}
+
+.xm-ratio {
+  display: flex;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.xm-ratio div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.xm-ratio .is-m {
+  background: var(--success);
+  color: var(--card);
+}
+
+.xm-ratio .is-u {
+  background: color-mix(in srgb, var(--muted) 42%, transparent);
+  color: var(--text);
+}
+
+.xm-note {
+  margin: 14px 0 0;
+  color: var(--accent-dark);
+  font-size: 0.9rem;
+}
+
+.xm-table-wrap {
+  margin-top: 16px;
+  max-height: 440px;
+  overflow: auto;
+}
+
+#excel-eslestirici .xm-table-wrap table {
+  min-width: 0;
+  font-size: 0.86rem;
+}
+
+#excel-eslestirici .xm-table-wrap th {
+  white-space: nowrap;
+}
+
+#excel-eslestirici .xm-table-wrap td {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+#excel-eslestirici .xm-table-wrap th.is-a {
+  color: var(--xm-a);
+  box-shadow: inset 0 3px 0 var(--xm-a);
+}
+
+#excel-eslestirici .xm-table-wrap th.is-b {
+  color: var(--xm-b);
+  box-shadow: inset 0 3px 0 var(--xm-b);
+}
+
+.xm-table-foot {
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.xm-table-empty {
+  padding: 18px;
+  color: var(--muted);
+}
+
+.xm-privacy {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
 .calculator-tab{border:1px solid var(--line);background:var(--surface-muted);color:var(--text);border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer;transition:.2s}.calculator-tab:hover,.calculator-tab.is-open{transform:translateY(-1px);border-color:var(--accent)}.calculator-tab.is-open{background:var(--accent-soft);color:var(--accent-dark)}
 .calculator-window{position:fixed;z-index:900;top:110px;right:26px;width:min(390px,calc(100vw - 24px));height:min(690px,calc(100vh - 40px));display:none;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--card);box-shadow:0 28px 70px rgba(35,20,10,.28)}.calculator-window.is-open{display:flex}.calculator-window.is-fullscreen{inset:16px!important;width:auto;height:auto;border-radius:24px}.calculator-window.is-docked{top:86px!important;right:0!important;left:auto!important;height:calc(100vh - 102px);border-radius:24px 0 0 24px}.calculator-window.is-minimized{width:58px;height:58px;top:120px!important;right:0!important;left:auto!important;border-radius:18px 0 0 18px}.calculator-window.is-minimized .calculator-body,.calculator-window.is-minimized .calculator-tabs,.calculator-window.is-minimized .calculator-title,.calculator-window.is-minimized .calculator-tools,.calculator-window.is-minimized .calculator-window-control:not([data-calc-action="minimize"]){display:none}.calculator-window.is-minimized .calculator-head{height:58px;padding:7px;justify-content:center;cursor:pointer}.calculator-window.is-minimized [data-calc-action="minimize"]{width:18px;height:18px;transform:scale(1.15)}
 .calculator-head{height:62px;flex:0 0 62px;position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px 10px 18px;border-bottom:1px solid var(--line);background:var(--card-strong);cursor:grab;user-select:none;touch-action:none}.calculator-title{position:absolute;left:50%;transform:translateX(-50%);font-weight:800;white-space:nowrap}.calculator-tools{display:flex;align-items:center;gap:2px;margin-left:auto}.calculator-tool{width:30px;height:30px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:var(--text);font-size:15px;font-weight:700;cursor:pointer}.calculator-tool:hover{background:var(--accent-soft);color:var(--accent-dark)}.calculator-window-controls{display:flex;align-items:center;gap:8px}.calculator-window-control{width:16px;height:16px;padding:0;border:0;border-radius:50%;position:relative;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}.calculator-window-control::after{position:absolute;inset:0;display:grid;place-items:center;color:rgba(42,25,18,.72);font:700 11px/1 Arial;opacity:0;transition:opacity .15s}.calculator-window-controls:hover .calculator-window-control::after{opacity:1}.calculator-window-control.is-close{background:#ff5f57}.calculator-window-control.is-close::after{content:"×"}.calculator-window-control.is-minimize{background:#febc2e}.calculator-window-control.is-minimize::after{content:"−"}.calculator-window-control.is-fullscreen{background:#28c840}.calculator-window-control.is-fullscreen::after{content:"+"}
@@ -949,65 +1358,19 @@ input:focus {
     </header>
 
     <nav class="tabs" aria-label="Sayfalar">
-      <button class="tab is-active" data-tab="icra-dikey">İcra Hesaplama Dikey</button>
-      <button class="tab" data-tab="icra-yatay">İcra Hesaplama</button>
+      <button class="tab is-active" data-tab="icra-dikey">İcra Hesaplama</button>
       <button class="tab" data-tab="dava">Dava Hesaplama</button>
       <button class="tab" data-tab="kapanan-dosya">Kapanan Dosya Bulma</button>
+      <button class="tab" data-tab="excel-eslestirici">Excel Eşleştirici</button>
       <button class="calculator-tab" id="open-calculator" type="button">Hesap Makinesi</button>
       <button class="ghost-button help-trigger" id="open-help-modal" type="button">Nasıl yapılır?</button>
     </nav>
 
     <main>
-      <section class="panel" id="icra-yatay">
-        <div class="panel-head">
-          <div>
-            <h2>İcra Hesaplama</h2>
-            <p>Yatay tablo görünümü. Satır ekleyerek yeni dosyalar hesaplayabilirsiniz.</p>
-          </div>
-          <button class="ghost-button" id="add-icra-row" type="button">Satır Ekle</button>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>İcra Açılış Tarihi</th>
-                <th>Ödeme Tarihi</th>
-                <th>Asıl Alacak</th>
-                <th>Geçmiş Gün Faizi</th>
-                <th>Hesaplanan Faiz</th>
-                <th>Danışmanlık</th>
-                <th>Yargılama Gideri</th>
-                <th>YG Geçmiş Faizi</th>
-                <th>YG Hesaplanan Faiz</th>
-                <th>Harç</th>
-                <th>Harç Geçmiş Faizi</th>
-                <th>Harç Hesaplanan Faiz</th>
-                <th>İlam Vekalet Ücreti</th>
-                <th>İVÜ Geçmiş Faizi</th>
-                <th>İVÜ Hesaplanan Faiz</th>
-                <th>Vekalet Pulu</th>
-                <th>Tebligat Gideri</th>
-                <th>Başvurma Harcı</th>
-                <th>Vekalet Suret Harcı</th>
-                <th>Peşin Harç</th>
-                <th>Tahsil Harcı</th>
-                <th>İcra Vekalet Ücreti</th>
-                <th>Toplam Borç</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="icra-rows"></tbody>
-          </table>
-        </div>
-
-        <div class="summary-grid" id="icra-discount-summary"></div>
-      </section>
-
       <section class="panel is-active" id="icra-dikey">
         <div class="panel-head">
           <div>
-            <h2>İcra Hesaplama Dikey</h2>
+            <h2>İcra Hesaplama</h2>
             <p>Dikey giriş solda, hesap sonuçları sağda gösterilir.</p>
           </div>
         </div>
@@ -1092,6 +1455,137 @@ input:focus {
             <button class="ghost-button" id="closed-file-run" type="button">Eşleştir ve İndir</button>
           </div>
           <div class="log-box" id="closed-file-log">Hazır.</div>
+        </div>
+      </section>
+
+      <section class="panel" id="excel-eslestirici">
+        <div class="panel-head">
+          <div>
+            <h2>Excel Eşleştirici</h2>
+            <p>İki Excel dosyasını seçtiğiniz sütunlar üzerinden karşılaştırır, aynı değere sahip satırları birleştirir ve istediğiniz sütunlarla Excel olarak indirir.</p>
+          </div>
+        </div>
+
+        <div class="card accent xm-card">
+          <div class="xm-step-head">
+            <span class="xm-num">01</span>
+            <h3>Dosyaları yükleyin</h3>
+            <span class="xm-hint">.xlsx · .xls · .csv</span>
+          </div>
+          <div class="tool-grid">
+            <div>
+              <div class="xm-drop is-a" id="xm-drop-A" tabindex="0" role="button" aria-label="Dosya 1 seçin">
+                <span class="xm-tag is-a">Dosya 1</span>
+                <div class="xm-fname" id="xm-name-A">Dosya seçin veya sürükleyin</div>
+                <div class="xm-meta" id="xm-meta-A">—</div>
+                <input type="file" id="xm-in-A" accept=".xlsx,.xls,.csv">
+              </div>
+              <div class="xm-field">
+                <label for="xm-sheet-A">Sayfa</label>
+                <select id="xm-sheet-A" disabled></select>
+              </div>
+            </div>
+            <div>
+              <div class="xm-drop is-b" id="xm-drop-B" tabindex="0" role="button" aria-label="Dosya 2 seçin">
+                <span class="xm-tag is-b">Dosya 2</span>
+                <div class="xm-fname" id="xm-name-B">Dosya seçin veya sürükleyin</div>
+                <div class="xm-meta" id="xm-meta-B">—</div>
+                <input type="file" id="xm-in-B" accept=".xlsx,.xls,.csv">
+              </div>
+              <div class="xm-field">
+                <label for="xm-sheet-B">Sayfa</label>
+                <select id="xm-sheet-B" disabled></select>
+              </div>
+            </div>
+          </div>
+          <div class="xm-opts">
+            <label class="xm-opt"><input type="checkbox" id="xm-header" checked> İlk satır başlık satırı</label>
+          </div>
+        </div>
+
+        <div class="card xm-card">
+          <div class="xm-step-head">
+            <span class="xm-num">02</span>
+            <h3>Karşılaştırılacak sütunlar</h3>
+            <span class="xm-hint">değerleri aynı olan satırlar eşleşir</span>
+          </div>
+          <div class="tool-grid">
+            <div>
+              <span class="xm-tag is-a">Dosya 1</span>
+              <div class="xm-field">
+                <label for="xm-key-A">Anahtar sütun</label>
+                <select id="xm-key-A" disabled></select>
+              </div>
+            </div>
+            <div>
+              <span class="xm-tag is-b">Dosya 2</span>
+              <div class="xm-field">
+                <label for="xm-key-B">Anahtar sütun</label>
+                <select id="xm-key-B" disabled></select>
+              </div>
+            </div>
+          </div>
+          <div class="xm-opts">
+            <label class="xm-opt"><input type="checkbox" id="xm-trim" checked> Baş/son boşlukları yoksay</label>
+            <label class="xm-opt"><input type="checkbox" id="xm-case" checked> Büyük/küçük harf duyarsız</label>
+            <label class="xm-opt"><input type="checkbox" id="xm-space"> Tüm boşlukları sil</label>
+            <label class="xm-opt"><input type="checkbox" id="xm-punct"> Noktalama işaretlerini sil</label>
+            <label class="xm-opt"><input type="checkbox" id="xm-zero"> Baştaki sıfırları yoksay</label>
+            <label class="xm-opt"><input type="checkbox" id="xm-all" checked> Çoklu eşleşmelerin hepsini getir</label>
+          </div>
+        </div>
+
+        <div class="card xm-card">
+          <div class="xm-step-head">
+            <span class="xm-num">03</span>
+            <h3>Sonuca gidecek sütunlar</h3>
+            <span class="xm-hint">işaretleme sırası kolon sırasıdır</span>
+          </div>
+          <div class="tool-grid">
+            <div>
+              <div class="xm-pickhead">
+                <span class="xm-tag is-a">Dosya 1</span>
+                <button class="ghost-button xm-mini" type="button" data-xm-all="A">Tümü</button>
+                <button class="ghost-button xm-mini" type="button" data-xm-none="A">Hiçbiri</button>
+              </div>
+              <div class="xm-chips" id="xm-pick-A"><span class="xm-empty">Önce dosya yükleyin.</span></div>
+            </div>
+            <div>
+              <div class="xm-pickhead">
+                <span class="xm-tag is-b">Dosya 2</span>
+                <button class="ghost-button xm-mini" type="button" data-xm-all="B">Tümü</button>
+                <button class="ghost-button xm-mini" type="button" data-xm-none="B">Hiçbiri</button>
+              </div>
+              <div class="xm-chips" id="xm-pick-B"><span class="xm-empty">Önce dosya yükleyin.</span></div>
+            </div>
+          </div>
+          <div class="xm-opts">
+            <label class="xm-opt"><input type="checkbox" id="xm-unmatched"> Eşleşmeyenleri ayrı sayfada da ver</label>
+          </div>
+        </div>
+
+        <div class="card accent xm-card">
+          <div class="xm-step-head">
+            <span class="xm-num">04</span>
+            <h3>Eşleştir ve indir</h3>
+          </div>
+          <div class="xm-bar">
+            <button class="xm-run" id="xm-run" type="button" disabled>Eşleştir</button>
+            <button class="xm-dl" id="xm-dl" type="button" disabled>Excel olarak indir</button>
+            <div class="xm-name-field">
+              <input type="text" id="xm-filename" value="eslesen-sonuclar" aria-label="Dosya adı">
+            </div>
+          </div>
+          <div class="log-box" id="xm-log">Hazır.</div>
+
+          <div class="xm-summary" id="xm-summary">
+            <div class="xm-ratio" id="xm-ratio"></div>
+            <div class="summary-grid" id="xm-stats"></div>
+            <p class="xm-note" id="xm-note"></p>
+            <div class="table-wrap xm-table-wrap" id="xm-tablebox"></div>
+          </div>
+
+          <p class="xm-privacy">Dosyalar tarayıcınızdan çıkmaz, tüm işlem cihazınızda yapılır.</p>
         </div>
       </section>
     </main>
@@ -2192,6 +2686,10 @@ function makeInput(type, value, dataset) {
 
 function renderIcraRows() {
   const tbody = document.getElementById("icra-rows");
+  if (!tbody) {
+    return;
+  }
+
   tbody.innerHTML = "";
 
   state.icraRows.forEach((row, index) => {
@@ -2245,6 +2743,10 @@ function renderIcraRows() {
 
 function renderIcraDiscountSummary() {
   const container = document.getElementById("icra-discount-summary");
+  if (!container) {
+    return;
+  }
+
   if (!state.icraRows.length) {
     container.innerHTML = "";
     return;
@@ -3250,8 +3752,437 @@ function initCalculatorTool() {
   renderCalcTabs(); renderCalcHistory(); updateCalcDisplay();
 }
 
+function initExcelMatcher() {
+  const xmState = {
+    A: { wb: null, name: "", sheet: "", headers: [], rows: [] },
+    B: { wb: null, name: "", sheet: "", headers: [], rows: [] },
+    out: [],
+    result: null
+  };
+
+  const el = (id) => document.getElementById("xm-" + id);
+  const checked = (id) => {
+    const node = el(id);
+    return node instanceof HTMLInputElement ? node.checked : false;
+  };
+
+  function xmEsc(value) {
+    return String(value).replace(/[&<>"]/g, (char) => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;"
+    }[char]));
+  }
+
+  function xmLog(message) {
+    const node = el("log");
+    if (node) {
+      node.textContent = message;
+    }
+  }
+
+  function columnLetter(index) {
+    let out = "";
+    let i = index + 1;
+    while (i > 0) {
+      const rest = (i - 1) % 26;
+      out = String.fromCharCode(65 + rest) + out;
+      i = (i - 1 - rest) / 26;
+    }
+    return out;
+  }
+
+  /* ---------- dosya okuma ---------- */
+  function bindDrop(key) {
+    const drop = el("drop-" + key);
+    const input = el("in-" + key);
+    if (!drop || !input) {
+      return;
+    }
+
+    drop.addEventListener("click", () => input.click());
+    drop.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        input.click();
+      }
+    });
+    drop.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      drop.classList.add("is-over");
+    });
+    drop.addEventListener("dragleave", () => drop.classList.remove("is-over"));
+    drop.addEventListener("drop", (event) => {
+      event.preventDefault();
+      drop.classList.remove("is-over");
+      const file = event.dataTransfer?.files?.[0];
+      if (file) {
+        readMatcherFile(key, file);
+      }
+    });
+    input.addEventListener("change", (event) => {
+      const file = event.target.files?.[0];
+      if (file) {
+        readMatcherFile(key, file);
+      }
+    });
+  }
+
+  function readMatcherFile(key, file) {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const workbook = XLSX.read(new Uint8Array(event.target.result), { type: "array", cellDates: true });
+        xmState[key].wb = workbook;
+        xmState[key].name = file.name;
+        const select = el("sheet-" + key);
+        select.innerHTML = workbook.SheetNames.map((name) => `<option>${xmEsc(name)}</option>`).join("");
+        select.disabled = false;
+        el("drop-" + key).classList.add("is-loaded");
+        el("name-" + key).textContent = file.name;
+        loadMatcherSheet(key, workbook.SheetNames[0]);
+        xmLog(`${file.name} yüklendi.`);
+      } catch (error) {
+        xmLog(`Hata: dosya okunamadı. ${error.message || error}`);
+      }
+    };
+    reader.onerror = () => xmLog("Hata: dosya okunamadı.");
+    reader.readAsArrayBuffer(file);
+  }
+
+  function loadMatcherSheet(key, sheetName) {
+    xmState[key].sheet = sheetName;
+    const sheet = xmState[key].wb.Sheets[sheetName];
+    const aoa = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: null, blankrows: false, raw: true });
+
+    let headers = [];
+    let rows = [];
+    if (aoa.length === 0) {
+      headers = [];
+      rows = [];
+    } else if (checked("header")) {
+      headers = aoa[0].map((value, index) => (value === null || String(value).trim() === "") ? columnLetter(index) : String(value).trim());
+      rows = aoa.slice(1);
+    } else {
+      const width = Math.max(...aoa.map((row) => row.length));
+      headers = Array.from({ length: width }, (_, index) => "Sütun " + columnLetter(index));
+      rows = aoa;
+    }
+
+    const width = Math.max(headers.length, ...rows.map((row) => row.length), 0);
+    headers = Array.from({ length: width }, (_, index) => headers[index] || columnLetter(index));
+    rows = rows.map((row) => Array.from({ length: width }, (_, index) => (row[index] === undefined ? null : row[index])));
+
+    xmState[key].headers = headers;
+    xmState[key].rows = rows;
+    el("meta-" + key).textContent = `${rows.length} satır · ${headers.length} sütun`;
+    fillKeySelect(key);
+    buildPicker(key);
+    resetMatcherResult();
+    refreshRunButton();
+  }
+
+  function fillKeySelect(key) {
+    const select = el("key-" + key);
+    const previous = select.value;
+    select.innerHTML = xmState[key].headers.map((header, index) => `<option value="${index}">${xmEsc(header)}</option>`).join("");
+    select.disabled = !xmState[key].headers.length;
+    if (previous && xmState[key].headers[previous]) {
+      select.value = previous;
+    }
+  }
+
+  /* ---------- sütun seçici ---------- */
+  function buildPicker(key) {
+    const box = el("pick-" + key);
+    if (!xmState[key].headers.length) {
+      box.innerHTML = '<span class="xm-empty">Önce dosya yükleyin.</span>';
+      return;
+    }
+
+    xmState.out = xmState.out.filter((item) => item.src !== key);
+    box.innerHTML = xmState[key].headers.map((header, index) => `
+      <label class="xm-chip is-${key.toLowerCase()}">
+        <input type="checkbox" data-xm-src="${key}" data-xm-idx="${index}" checked>
+        <span title="${xmEsc(header)}">${xmEsc(header)}</span>
+      </label>
+    `).join("");
+
+    xmState[key].headers.forEach((header, index) => xmState.out.push({ src: key, idx: index }));
+    xmState.out.sort((left, right) => (left.src === right.src ? left.idx - right.idx : (left.src < right.src ? -1 : 1)));
+    box.querySelectorAll("input").forEach((box2) => box2.addEventListener("change", onPickChange));
+  }
+
+  function onPickChange(event) {
+    applyPick(event.target);
+    resetMatcherResult();
+  }
+
+  function applyPick(input) {
+    const src = input.dataset.xmSrc;
+    const idx = Number(input.dataset.xmIdx);
+    if (input.checked) {
+      xmState.out.push({ src, idx });
+    } else {
+      xmState.out = xmState.out.filter((item) => !(item.src === src && item.idx === idx));
+    }
+  }
+
+  /* ---------- normalizasyon ---------- */
+  function normalizeValue(value) {
+    if (value === null || value === undefined) {
+      return "";
+    }
+
+    let text;
+    if (value instanceof Date) {
+      text = value.toISOString().slice(0, 10);
+    } else {
+      text = String(value);
+    }
+
+    if (checked("trim")) {
+      text = text.trim();
+    }
+    if (checked("space")) {
+      text = text.replace(/\s+/g, "");
+    }
+    if (checked("punct")) {
+      text = text.replace(/[.,\-_/\\'"()\[\]{}:;!?*#]/g, "");
+    }
+    if (checked("case")) {
+      text = turkishLower(text);
+    }
+    if (checked("zero") && /^0+\d+$/.test(text)) {
+      text = text.replace(/^0+/, "");
+    }
+    return text;
+  }
+
+  function displayValue(value) {
+    if (value === null || value === undefined) {
+      return "";
+    }
+    if (value instanceof Date) {
+      return value.toLocaleDateString("tr-TR");
+    }
+    return String(value);
+  }
+
+  /* ---------- eşleştirme ---------- */
+  function runMatcher() {
+    const keyA = Number(el("key-A").value);
+    const keyB = Number(el("key-B").value);
+    const index = new Map();
+    const duplicates = new Set();
+
+    xmState.B.rows.forEach((row) => {
+      const key = normalizeValue(row[keyB]);
+      if (key === "") {
+        return;
+      }
+      if (index.has(key)) {
+        duplicates.add(key);
+      } else {
+        index.set(key, []);
+      }
+      index.get(key).push(row);
+    });
+
+    const takeAll = checked("all");
+    const pairs = [];
+    const unmatched = [];
+    const usedB = new Set();
+    let matchedA = 0;
+
+    xmState.A.rows.forEach((row) => {
+      const key = normalizeValue(row[keyA]);
+      const hits = key === "" ? null : index.get(key);
+      if (hits && hits.length) {
+        matchedA += 1;
+        usedB.add(key);
+        (takeAll ? hits : [hits[0]]).forEach((match) => pairs.push({ a: row, b: match }));
+      } else {
+        unmatched.push(row);
+      }
+    });
+
+    const unmatchedB = [...index.keys()].filter((key) => !usedB.has(key)).length;
+    xmState.result = { pairs, unmatched, matchedA, unmatchedB, dupB: duplicates.size, cols: buildOutputColumns() };
+    renderMatcherResult();
+    el("dl").disabled = pairs.length === 0;
+    xmLog(`Eşleştirme tamamlandı.\nEşleşen satır sayısı: ${pairs.length}\nSonuca giden sütun sayısı: ${xmState.result.cols.length}`);
+  }
+
+  function buildOutputColumns() {
+    const namesA = xmState.out.filter((item) => item.src === "A").map((item) => xmState.A.headers[item.idx]);
+    const namesB = xmState.out.filter((item) => item.src === "B").map((item) => xmState.B.headers[item.idx]);
+    return xmState.out.map((item) => {
+      const header = xmState[item.src].headers[item.idx];
+      const clash = (item.src === "A" ? namesB : namesA).includes(header);
+      return {
+        src: item.src,
+        idx: item.idx,
+        label: clash ? `${header} (Dosya ${item.src === "A" ? 1 : 2})` : header
+      };
+    });
+  }
+
+  function renderMatcherResult() {
+    const result = xmState.result;
+    el("summary").classList.add("is-visible");
+
+    const total = xmState.A.rows.length;
+    const matched = result.matchedA;
+    const missed = total - matched;
+    el("ratio").innerHTML =
+      `<div class="is-m" style="flex:${matched || 0.001}">${matched ? matched + " eşleşti" : ""}</div>` +
+      `<div class="is-u" style="flex:${missed || 0.001}">${missed ? missed + " eşleşmedi" : ""}</div>`;
+
+    el("stats").innerHTML = [
+      ["Dosya 1", `${xmState.A.rows.length} satır`],
+      ["Dosya 2", `${xmState.B.rows.length} satır`],
+      ["Sonuç", `${result.pairs.length} satır`],
+      ["Dosya 2'de karşılığı yok", `${result.unmatchedB} anahtar`]
+    ].map(([label, value]) => `
+      <div class="card">
+        <div class="metric">
+          <span class="metric-label">${label}</span>
+          <strong class="metric-value">${value}</strong>
+        </div>
+      </div>
+    `).join("");
+
+    el("note").textContent = result.dupB
+      ? `Dosya 2'de ${result.dupB} anahtar birden fazla kez geçiyor. ${checked("all") ? "Her biri için ayrı satır üretildi." : "Yalnızca ilk eşleşme alındı."}`
+      : "";
+
+    if (!result.pairs.length) {
+      el("tablebox").innerHTML = '<div class="xm-table-empty">Eşleşen satır yok. Anahtar sütunları veya karşılaştırma seçeneklerini gözden geçirin.</div>';
+      return;
+    }
+    if (!result.cols.length) {
+      el("tablebox").innerHTML = '<div class="xm-table-empty">Sonuca gidecek en az bir sütun seçin.</div>';
+      return;
+    }
+
+    const preview = result.pairs.slice(0, 200);
+    el("tablebox").innerHTML =
+      "<table><thead><tr>" +
+      result.cols.map((col) => `<th class="is-${col.src.toLowerCase()}">${xmEsc(col.label)}</th>`).join("") +
+      "</tr></thead><tbody>" +
+      preview.map((pair) => "<tr>" + result.cols.map((col) => `<td>${xmEsc(displayValue(pair[col.src.toLowerCase()][col.idx]))}</td>`).join("") + "</tr>").join("") +
+      "</tbody></table>" +
+      (result.pairs.length > preview.length
+        ? `<div class="xm-table-foot">İlk ${preview.length} satır gösteriliyor · tamamı Excel dosyasında.</div>`
+        : "");
+  }
+
+  /* ---------- indirme ---------- */
+  function downloadMatcherResult() {
+    const result = xmState.result;
+    if (!result || !result.cols.length) {
+      xmLog("Sonuca gidecek en az bir sütun seçin.");
+      return;
+    }
+
+    const aoa = [result.cols.map((col) => col.label)];
+    result.pairs.forEach((pair) => aoa.push(result.cols.map((col) => pair[col.src.toLowerCase()][col.idx])));
+
+    const workbook = XLSX.utils.book_new();
+    const sheet = XLSX.utils.aoa_to_sheet(aoa, { cellDates: true });
+    sheet["!cols"] = result.cols.map((col, index) => {
+      const width = Math.max(10, ...aoa.slice(0, 300).map((row) => String(row[index] ?? "").length + 2));
+      return { wch: Math.min(42, width) };
+    });
+    XLSX.utils.book_append_sheet(workbook, sheet, "Eşleşenler");
+
+    if (checked("unmatched") && result.unmatched.length) {
+      let colsA = result.cols.filter((col) => col.src === "A");
+      if (!colsA.length) {
+        colsA = xmState.A.headers.map((header, index) => ({ src: "A", idx: index, label: header }));
+      }
+      const rows = [colsA.map((col) => col.label)];
+      result.unmatched.forEach((row) => rows.push(colsA.map((col) => row[col.idx])));
+      XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(rows, { cellDates: true }), "Eşleşmeyenler");
+    }
+
+    const fileName = (el("filename").value.trim() || "eslesen-sonuclar").replace(/\.xlsx$/i, "");
+    XLSX.writeFile(workbook, fileName + ".xlsx");
+    xmLog(`İndirildi: ${fileName}.xlsx`);
+  }
+
+  /* ---------- yardımcı ---------- */
+  function resetMatcherResult() {
+    xmState.result = null;
+    el("summary").classList.remove("is-visible");
+    el("dl").disabled = true;
+  }
+
+  function refreshRunButton() {
+    el("run").disabled = !(xmState.A.rows.length && xmState.B.rows.length);
+  }
+
+  /* ---------- bağlama ---------- */
+  bindDrop("A");
+  bindDrop("B");
+
+  ["A", "B"].forEach((key) => {
+    el("sheet-" + key).addEventListener("change", (event) => loadMatcherSheet(key, event.target.value));
+    el("key-" + key).addEventListener("change", resetMatcherResult);
+  });
+
+  el("header").addEventListener("change", () => {
+    ["A", "B"].forEach((key) => {
+      if (xmState[key].wb) {
+        loadMatcherSheet(key, xmState[key].sheet);
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-xm-all], [data-xm-none]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const key = button.dataset.xmAll || button.dataset.xmNone;
+      const on = Boolean(button.dataset.xmAll);
+      el("pick-" + key).querySelectorAll("input").forEach((input) => {
+        if (input.checked !== on) {
+          input.checked = on;
+          applyPick(input);
+        }
+      });
+      resetMatcherResult();
+    });
+  });
+
+  document.querySelectorAll("#excel-eslestirici .xm-opt input").forEach((input) => {
+    input.addEventListener("change", () => {
+      if (input.id !== "xm-header") {
+        resetMatcherResult();
+      }
+    });
+  });
+
+  el("run").addEventListener("click", () => {
+    try {
+      runMatcher();
+    } catch (error) {
+      xmLog(`Hata: ${error.message || error}`);
+    }
+  });
+
+  el("dl").addEventListener("click", () => {
+    try {
+      downloadMatcherResult();
+    } catch (error) {
+      xmLog(`Hata: ${error.message || error}`);
+    }
+  });
+}
+
 initTheme();
 initCalculatorTool();
+initExcelMatcher();
 renderAll();
 
 </script>
